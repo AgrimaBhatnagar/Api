@@ -527,9 +527,7 @@ paths:
               title: show object
               type: object
               properties:
-                SVid:
-                  type: integer
-                  example: 200
+                
                 Venue_id:  
                   type: integer
                   example: 201
