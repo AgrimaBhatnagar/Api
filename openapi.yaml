@@ -1,0 +1,538 @@
+openapi: 3.0.3
+info:
+  title: Ticket Show
+  version: 1.0.0
+  description: >
+    Ticket Show API's
+
+    <h2>ER Daigram</h2>
+
+    <img
+    src="https://mermaid.ink/img/pako:eNqNksFuwyAMhl8F-dy-QG5Te-mlh6XqKRLygkvRAkTgdKqivHshrJqopmk38_n3rx_DDL1XBA1Q2BvUAa3onBA3chOJxW-3fhbx6r9kIU0HHfwo5lwJYRyTpiAO-3KOHIzT4oiWKrAzfBf1yA5H7BOudG9KBYqxYgeLunY75wTy4kOmy-qbk8Y_Y6-K_8Z-Ct6RU6MSnVDHWnQy_SexHIPp65wtY2DJ5tW1DESJNzQDfgypvd7kGVP-tuL2bFRNyhpeaZsNClxgA5aCRaPSO69-HfCVUh5oUqnogtPAaUUuS3Fi395dDw2HiTYwjQqZvj9HgcsDumi_UA?type=png"/>
+
+    <h2>Error Codes</h2>
+
+    <table><thead>
+      <th>Resources</th>
+      <th>Error Codes</th>
+      <th>Messages</th>
+      </thead>
+      <tbody>
+      <td>Resource</td>
+      <td>Error code</td>
+      <td>Message</td>
+      </tbody>
+     </table>
+paths:
+  /api/venue/{venue_id}:
+    description: End point to create,update, delete and read information about a venue.
+    get:
+      description: Operation to get venue details.
+      parameters:
+        - in: path
+          name: venue_id
+          required: true
+          schema:
+            type: integer
+            example: 101
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                title: venue object
+                type: object
+                properties:
+                  ID:
+                    type: integer
+                    example: 201
+                  Name:
+                    type: string
+                    example: PVR
+                  City:
+                    type: string
+                    example: city
+                  Capacity:
+                    type: integer
+                    example: 100
+                  Address:
+                    type: string
+                    example: Address
+                  Image:
+                    type: string
+                    example: Image
+                  Venue_for:
+                    type: string
+                    example: Venue_for
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error_code:
+                    type: string
+                  error_message:
+                    type: string
+        '404':
+          description: Resource not Found.
+        '500':
+          description: Internal server error.
+    put:
+      description: Operations to update a venue.
+      parameters:
+        - in: path
+          name: venue_id
+          required: true
+          schema:
+            type: integer
+            example: 101
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Name:
+                  type: string
+                  example: PVR
+                Capacity:
+                  type: integer
+                  example: 100
+                Address:
+                  type: string
+                  example: Address
+                Image:
+                  type: string
+                  example: Image
+      responses:
+        '200':
+          description: Successfuly Updated
+          content:
+            application/json:
+              schema:
+                title: venue object
+                type: object
+                properties:
+                  ID:
+                    type: integer
+                    example: 201
+                  Name:
+                    type: string
+                    example: PVR
+                  City:
+                    type: string
+                    example: city
+                  Capacity:
+                    type: integer
+                    example: 100
+                  Address:
+                    type: string
+                    example: Address
+                  Image:
+                    type: integer
+                    example: Image
+                  Venue_for:
+                    type: integer
+                    example: Venue_for
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error_code:
+                    type: string
+                  error_message:
+                    type: string
+        '404':
+          description: Resource you requested not found.
+        '500':
+          description: Internal server error.
+    delete:
+      description: Operation to delete a venue
+      parameters:
+        - in: path
+          name: venue_id
+          required: true
+          schema:
+            type: integer
+            example: 101
+      responses:
+        '200':
+          description: Successfuly Deleted
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error_code:
+                    type: string
+                  error_message:
+                    type: string
+        '404':
+          description: Venue does not exist.
+        '500':
+          description: Internal server error.
+  /api/venue:
+    description: End point to create a venue
+    post:
+      description: Operation to create a venue.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: venue object
+              type: object
+              properties:
+                Name:
+                  type: string
+                  example: PVR
+                City:
+                  type: string
+                  example: city
+                Capacity:
+                  type: integer
+                  example: 100
+                Address:
+                  type: string
+                  example: Address
+                Image:
+                  type: integer
+                  example: Image
+                Venue_for:
+                  type: integer
+                  example: Venue_for
+      responses:
+        '201':
+          description: Successfully Created
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error_code:
+                    type: string
+                  error_message:
+                    type: string
+        '409':
+          description: Venue already exist.
+        '500':
+          description: Internal server error.
+  /api/show/{show_id}:
+    description: End point to create,update , delete and read  data information
+    get:
+      description: Operation to get venue details.
+      parameters:
+        - in: path
+          name: show_id
+          required: true
+          schema:
+            type: integer
+            example: 101
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                title: show object
+                type: object
+                properties:
+                  ID:
+                    type: integer
+                    example: 201
+                  Name:
+                    type: string
+                    example: name
+                  Rating:
+                    type: integer
+                    example: 5
+                  Tags:
+                    type: string
+                    example: /#hello
+                  Ticket_price:
+                    type: integer
+                    example: 300
+                  Start_time:
+                    type: string
+                    example: '12:20'
+                  Tickets_available:
+                    type: integer
+                    example: 33
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error_code:
+                    type: string
+                  error_message:
+                    type: string
+        '404':
+          description: Resource not Found.
+        '500':
+          description: Internal server error.
+    put:
+      description: Operations to update a show.
+      parameters:
+        - in: path
+          name: show_id
+          required: true
+          schema:
+            type: integer
+            example: 101
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Name:
+                  type: string
+                  example: PVR
+                Rating:
+                  type: integer
+                  example: 4
+                Tags:
+                  type: string
+                  example: Tags
+                Image:
+                  type: integer
+                  example: Image
+      responses:
+        '200':
+          description: Successfuly Updated
+          content:
+            application/json:
+              schema:
+                title: venue object
+                type: object
+                properties:
+                  Name:
+                    type: string
+                    example: PVR
+                  Rating:
+                    type: integer
+                    example: 4
+                  Tags:
+                    type: string
+                    example: /#hello
+                  Ticket_price:
+                    type: integer
+                    example: 400
+                  Start_time:
+                    type: string
+                    example: '01:00'
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error_code:
+                    type: string
+                  error_message:
+                    type: string
+        '404':
+          description: Resource you requested not found.
+        '500':
+          description: Internal server error.
+    delete:
+      description: Operation to delete a show.
+      parameters:
+        - in: path
+          name: show_id
+          required: true
+          schema:
+            type: integer
+            example: 101
+      responses:
+        '200':
+          description: Successfuly Deleted
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error_code:
+                    type: string
+                  error_message:
+                    type: string
+        '404':
+          description: Venue does not exist.
+        '500':
+          description: Internal server error.
+  /api/show:
+    description: End point to create a venue
+    post:
+      description: Operation to create a venue.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: show object
+              type: object
+              properties:
+                Name:
+                  type: string
+                  example: PVR
+                Rating:
+                  type: integer
+                  example: 4
+                Tags:
+                  type: string
+                  example: /#hello
+                Ticket_price:
+                  type: integer
+                  example: 400
+                Start_time:
+                  type: string
+                  example: '01:00'
+      responses:
+        '201':
+          description: Successfully Created
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error_code:
+                    type: string
+                  error_message:
+                    type: string
+        '409':
+          description: Show already exist.
+        '500':
+          description: Internal server error.
+  /api/venue/show/{show_id}:
+    description: End point for show venue allotment.
+    get:
+      description: Operation to get venue details.
+      parameters:
+        - in: path
+          name: show_id
+          required: true
+          schema:
+            type: integer
+            example: 101
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                title: relation object
+                type: object
+                properties:
+                  SVid:
+                    type: integer
+                    example: 201
+                  Venue_id:
+                    type: integer
+                    example: 100
+                  Show_id:
+                    type: integer
+                    example: 301
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error_code:
+                    type: string
+                  error_message:
+                    type: string
+        '404':
+          description: Resource not Found.
+        '500':
+          description: Internal server error.
+  /api/venue/show/{venue_id}/{show_id}:
+    description: Relation delte operation
+    delete:
+      description: Operation to delete a show venue relation.
+      parameters:
+        - in: path
+          name: show_id
+          required: true
+          schema:
+            type: integer
+            example: 101
+        - in: path
+          name: venue_id
+          required: true
+          schema:
+            type: integer
+            example: 101
+      responses:
+        '200':
+          description: Successfuly Deleted
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error_code:
+                    type: string
+                  error_message:
+                    type: string
+        '404':
+          description: Venue does not exist.
+        '500':
+          description: Internal server error.
+  /api/venue/show:
+    description: Create show and venue Relation.
+    post:
+      description: Operation to create a venue.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              title: show object
+              type: object
+              properties:
+                SVid:
+                  type: integer
+                  example: 200
+                Venue_id:  
+                  type: integer
+                  example: 201
+                Show_id:
+                  type: integer
+                  example: 105
+      responses:
+        '201':
+          description: Successfully Created
+        '400':
+          description: Bad request.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error_code:
+                    type: string
+                  error_message:
+                    type: string
+        '409':
+          description: Show already exist.
+        '500':
+          description: Internal server error.
