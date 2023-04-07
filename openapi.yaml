@@ -416,7 +416,7 @@ paths:
                 Start_time:
                   type: string
                   example: '01:00'
-                Ticket_available:
+                Tickets_available:
                   type: integer
                   example: 400  
       responses:
