@@ -18,13 +18,26 @@ info:
       <th>Messages</th>
       </thead>
       <tbody>
-      <td>Resource</td>
-      <td>Error code</td>
-      <td>Message</td>
+      <tr>
+      <td>Venue</td>
+      <td>VE101</td>
+      <td>All feilds are required.</td></tr>
+      <tr>
+      <td>Venue</td>
+      <td>VE102</td>
+      <td>Venue already exist.</td></tr>
+      <tr>
+      <td>Show</td>
+      <td>SE101</td>
+      <td>All feilds are required.</td></tr>
+      <tr>
+      <td>Show</td>
+      <td>SE102</td>
+      <td>Show already exist.</td></tr>
       </tbody>
      </table>
 servers: 
- - url: http://127.0.0.1:5000/     
+ - url: http://127.0.0.1:5000/
 paths:
   /api/venue/{venue_id}:
     description: End point to create,update, delete and read information about a venue.
@@ -403,6 +416,9 @@ paths:
                 Start_time:
                   type: string
                   example: '01:00'
+                Ticket_available:
+                  type: integer
+                  example: 400  
       responses:
         '201':
           description: Successfully Created
