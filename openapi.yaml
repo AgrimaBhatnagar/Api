@@ -23,6 +23,8 @@ info:
       <td>Message</td>
       </tbody>
      </table>
+servers: 
+ - url: http://127.0.0.1:5000/     
 paths:
   /api/venue/{venue_id}:
     description: End point to create,update, delete and read information about a venue.
