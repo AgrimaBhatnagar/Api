@@ -496,9 +496,9 @@ paths:
         '500':
           description: Internal server error.
   /api/venue/show/{venue_id}/{show_id}:
-    description: Relation delte operation
+    description: Relation deletion operation
     delete:
-      description: Operation to delete a show venue relation.
+      description: Operation to delete a show-venue relation.
       parameters:
         - in: path
           name: show_id
@@ -533,7 +533,7 @@ paths:
   /api/venue/show:
     description: Create show and venue Relation.
     post:
-      description: Operation to create a venue.
+      description: Operation to create a Relation.
       requestBody:
         content:
           application/json:
@@ -563,6 +563,6 @@ paths:
                   error_message:
                     type: string
         '409':
-          description: Show already exist.
+          description: Relation already exist.
         '500':
           description: Internal server error.
