@@ -27,6 +27,9 @@ info:
       <td>VE102</td>
       <td>Venue already exist.</td></tr>
       <tr>
+      <tr><td>Venue</td>
+      <td>VE103</td>
+      <td>Venue does not exist.</td></tr>
       <td>Show</td>
       <td>SE101</td>
       <td>All feilds are required.</td></tr>
@@ -34,19 +37,19 @@ info:
       <td>Show</td>
       <td>SE102</td>
       <td>Show already exist.</td></tr>
+      <tr><td>Show</td>
+      <td>SE103</td>
+      <td>Show does not exist.</td></tr>
       <tr>
       <td>Show_Venue</td>
       <td>SVE101</td>
+      
       <td>All fields are required.</td></tr>
-      <td>Show_Venue</td>
+      <tr><td>Show_Venue</td>
       <td>SVE102</td>
       <td>Relation already exist.</td></tr>
-      <td>Show</td>
-      <td>SVE103</td>
-      <td>Show does not exist.</td></tr>
-      <td>Venue</td>
-      <td>SVE104</td>
-      <td>Venue does not exist.</td></tr>
+      
+      
       
       </tbody>
      </table>
