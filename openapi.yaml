@@ -527,7 +527,7 @@ paths:
                   error_message:
                     type: string
         '404':
-          description: Venue does not exist.
+          description: Relation does not exist.
         '500':
           description: Internal server error.
   /api/venue/show:
